@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ────────── Default CSS Custom Properties (Midnight Breeze) ────────── */
+:root {
+  --bg-app: #0a0e17;
+  --bg-panel: #0d1117;
+  --bg-surface: #161b22;
+  --bg-elevated: #1c2333;
+  --bg-input: #0d1117;
+  --bg-hover: #1e2a3a;
+
+  --border: #1e293b;
+  --border-subtle: #1a2234;
+  --border-active: #2d4a22;
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-heading: #f1f5f9;
+
+  --term-bg: #0d1117;
+  --term-header-bg: #161b22;
+  --term-text: #c9d1d9;
+  --term-prompt: #4ade80;
+  --term-input: #e2e8f0;
+  --term-success: #4ade80;
+  --term-error: #f87171;
+  --term-warning: #fbbf24;
+  --term-info: #60a5fa;
+  --term-system: #c084fc;
+  --term-caret: #4ade80;
+  --term-sugg-bg: #1c2333;
+
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+  --accent-muted: #14532d;
+
+  --success: #4ade80;
+  --error: #f87171;
+  --warning: #fbbf24;
+  --info: #60a5fa;
+
+  --scroll-thumb: #2d3748;
+  --scroll-track: transparent;
+}
+
+/* ────────── Global body ────────── */
+body {
+  background: var(--bg-app);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ────────── Scrollbars ────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { opacity: 0.8; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: var(--scroll-track); }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 3px; }
+
+/* Firefox */
+* { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) var(--scroll-track); }
+
+/* ────────── Selection ────────── */
+::selection { background: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--text-heading); }
+
+/* ────────── Input Caret ────────── */
+input, textarea { caret-color: var(--term-caret); }
+
+/* ────────── Font Stack ────────── */
+code, .font-mono {
+  font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+}
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ────────── Theme-Aware Utility Classes ────────── */
+
+/* Shell backgrounds */
+.theme-bg-app { background-color: var(--bg-app); }
+.theme-bg-panel { background-color: var(--bg-panel); }
+.theme-bg-surface { background-color: var(--bg-surface); }
+.theme-bg-elevated { background-color: var(--bg-elevated); }
+.theme-bg-input { background-color: var(--bg-input); }
+.theme-bg-hover:hover { background-color: var(--bg-hover); }
+
+/* Borders */
+.theme-border { border-color: var(--border); }
+.theme-border-subtle { border-color: var(--border-subtle); }
+.theme-border-active { border-color: var(--border-active); }
+
+/* Text */
+.theme-text { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-text-muted { color: var(--text-muted); }
+.theme-text-heading { color: var(--text-heading); }
+
+/* Accent */
+.theme-accent { color: var(--accent); }
+.theme-bg-accent { background-color: var(--accent); }
+.theme-bg-accent-muted { background-color: var(--accent-muted); }
+.theme-border-accent { border-color: var(--accent); }
+
+/* Terminal */
+.theme-term-bg { background-color: var(--term-bg); }
+.theme-term-header { background-color: var(--term-header-bg); }
+.theme-term-text { color: var(--term-text); }
+.theme-term-prompt { color: var(--term-prompt); }
+.theme-term-success { color: var(--term-success); }
+.theme-term-error { color: var(--term-error); }
+.theme-term-warning { color: var(--term-warning); }
+.theme-term-info { color: var(--term-info); }
+.theme-term-system { color: var(--term-system); font-weight: bold; }
+
+/* ────────── Animations ────────── */
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-gentle-pulse { animation: gentle-pulse 2s ease-in-out infinite; }
+
+/* ────────── Theme Transition on root ────────── */
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
