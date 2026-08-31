@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://AbdurRaahimm.github.io/onine-git-practice-simulation/sitemap.xml
